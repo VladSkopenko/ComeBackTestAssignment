@@ -1,0 +1,43 @@
+from enum import Enum
+
+
+class Messages(Enum):
+    ALREADY_EXISTS = "Already exists"
+    ALREADY_ACTIVATED = "Already activated"
+    ALREADY_DEACTIVATED = "Already deactivated"
+    ALREADY_CONFIRMED = "Your email is already confirmed"
+    BAD_REQUEST = "Bad request"
+    CHECK_CONFIRMATION = "Check your email for confirmation"
+    CREDENTIALS_LICENCE_ERROR = "Credentials license error"
+    DATABASE_NOT_CONFIGURED = "Database is not configured correctly"
+    EMAIL_NOT_CONFIRMED = "Email not confirmed"
+    EMAIL_IS_EXISTS = "Email is exists"
+    EMAIL_CONFIRMED = "Email confirmed"
+    ERROR_CONNECTING_DATABASE = "Error connecting to the database"
+    FILLED_TO_ADD_ERROR = "Filled to add error"
+    INVALID_EMAIL = "Invalid email"
+    INVALID_LOGIN = "Invalid login"
+    INVALID_PASSWORD = "Invalid password"
+    INVALID_REFRESH_TOKEN = "Invalid refresh token"
+    INVALID_RESET_TOKEN = "Invalid reset token"
+    INVALID_TOKEN_EMAIL = "Invalid token for email verification"
+    INVALID_TOKEN = "Invalid scope for token"
+    SUCCESS_CREATE_USER = "Success create user"
+    NOT_VALIDATE = "Could not validate credentials"
+    NOT_FOUND = "Not found"
+    VERIFICATION_ERROR = "Verification error"
+    OPERATION_FORBIDDEN = "Operation forbidden"
+    PRIVILEGES_DENIED = "You don have this privileges"
+    PERMISSION_DENIED = "Permission denied"
+    PASSWORD_UPDATED = "Password successfully updated"
+    RESET_PASSWORD_CONFIRM = "Reset password confirm"
+    USER_BANNED = "User successfully banned"
+    USER_NOT_ACTIVE = "User is not active"
+    USER_IS_LOGOUT = "User is logout"
+    USER_REMOVE = "User removed"
+    USER_REMOVE_FROM_BLACKLIST = "User remove from blacklist"
+    USER_NOT_FOUND = "User not found"
+    WELLCOME = "Welcome to Tekra-API-Service!"
+
+    def __str__(self):
+        return self.value
