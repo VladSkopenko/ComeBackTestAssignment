@@ -1,11 +1,10 @@
-import logging
+from typing import Optional
 from uuid import UUID
 
 from src.core.exceptions import NotFound
 from src.core.logging_config import get_logger
 from src.core.messages import Messages
 from src.utils.unitofwork import IUnitOfWork
-
 
 logger = get_logger(__name__)
 
@@ -42,7 +41,7 @@ class DocumentWordService:
     ):
         async with uow:
             document_word_updated = await uow.documents.edit_one(
-                document_word_id, data=data
+                document_word_id, data={"formatted_apa": data}
             )
 
             return document_word_updated
@@ -54,3 +53,11 @@ class DocumentWordService:
         async with uow:
             await uow.documents.delete_one(document_word_id)
 
+    @staticmethod
+    async def get_all_document_word(
+            uow: IUnitOfWork,
+            limit: Optional[int] = None
+    ):
+        async with uow:
+            document_word = await uow.documents.find_all(limit=limit)
+            return document_word
