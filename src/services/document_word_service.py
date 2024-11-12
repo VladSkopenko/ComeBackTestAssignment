@@ -16,32 +16,41 @@ class DocumentWordService:
     """
 
     @staticmethod
+    async def create_document_word(
+            uow: IUnitOfWork, dropbox_path: str,
+    ):
+        async with uow:
+            document_word = await uow.documents.add_one(data={"original_document": dropbox_path})
+            return document_word
+
+    @staticmethod
     async def get_document_word_by_id(
             uow: IUnitOfWork, document_word_id: UUID
     ):
         async with uow:
-            organization = await uow.documents.find_one_or_none(
+            document_word = await uow.documents.find_one_or_none(
                 id=document_word_id
             )
-            if organization is None:
+            if document_word is None:
                 raise NotFound(Messages.NOT_FOUND)
-            return organization
+            return document_word
 
     @staticmethod
     async def update_document_word_by_id(
-            uow: IUnitOfWork, document_word_id: UUID
+            uow: IUnitOfWork, document_word_id: UUID, data
 
     ):
         async with uow:
             document_word_updated = await uow.documents.edit_one(
-                document_word_id, data={"active": False} # todo доробити
+                document_word_id, data=data
             )
 
             return document_word_updated
 
     @staticmethod
-    async def delete_organization_by_id(
+    async def delete_document_word_by_id(
             uow: IUnitOfWork, document_word_id: UUID
     ) -> None:
         async with uow:
             await uow.documents.delete_one(document_word_id)
+

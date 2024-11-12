@@ -15,7 +15,7 @@ logger = get_logger(__name__)
 app = FastAPI(title="ComeBack-API-Service")
 
 app.add_middleware(
-    CORSMiddleware,  # Cross-Origin Resource Sharing
+    CORSMiddleware,  # Cross-Origin Resource Sharing !!!!!!!!!!!!!
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],

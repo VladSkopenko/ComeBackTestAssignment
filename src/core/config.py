@@ -1,11 +1,8 @@
 from dotenv import load_dotenv
-from pydantic import BaseModel
-from pydantic import PostgresDsn
-from pydantic_settings import BaseSettings
-from pydantic_settings import SettingsConfigDict
+from pydantic import BaseModel, PostgresDsn
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 load_dotenv()
-
 
 class RunConfig(BaseModel):
     host: str = "127.0.0.1"
@@ -14,6 +11,10 @@ class RunConfig(BaseModel):
 
 class ApiPrefix(BaseModel):
     prefix: str = "/api"
+
+
+class DropboxConfig(BaseModel):
+    token: str
 
 
 class DatabaseConfig(BaseSettings):
@@ -46,7 +47,9 @@ class Settings(BaseSettings):
     run: RunConfig = RunConfig()
     api: ApiPrefix = ApiPrefix()
     db: DatabaseConfig
+    dropbox: DropboxConfig
     log: LogConfig = LogConfig()
+
 
 
 settings = Settings()

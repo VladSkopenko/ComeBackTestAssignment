@@ -28,3 +28,4 @@ class DocumentWord(Base):
     original_document: Mapped[str] = mapped_column(String, nullable=False)
     formatted_apa: Mapped[str] = mapped_column(String, nullable=True)
     formatted_something_else: Mapped[str] = mapped_column(String, nullable=True)
+    formatted_draft: Mapped[str] = mapped_column(String, nullable=True)
