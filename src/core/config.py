@@ -1,8 +1,11 @@
 from dotenv import load_dotenv
-from pydantic import BaseModel, PostgresDsn
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import BaseModel
+from pydantic import PostgresDsn
+from pydantic_settings import BaseSettings
+from pydantic_settings import SettingsConfigDict
 
 load_dotenv()
+
 
 class RunConfig(BaseModel):
     host: str = "127.0.0.1"
@@ -49,7 +52,6 @@ class Settings(BaseSettings):
     db: DatabaseConfig
     dropbox: DropboxConfig
     log: LogConfig = LogConfig()
-
 
 
 settings = Settings()

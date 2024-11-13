@@ -3,14 +3,13 @@ from pathlib import Path
 
 from src.core.config import settings
 
-
 _format = "%(asctime)s [%(levelname)s] - %(name)s - %(funcName)s(%(lineno)d) - %(message)s"
 
 BASE_DIR = Path(__file__).parent
 
 FILE = f"{BASE_DIR}{settings.log.path}"
 
-file = 'src/utils/app_logs.log'
+file = 'app_logs.log'
 
 file_handler = logging.FileHandler(file)
 file_handler.setLevel(logging.INFO)

@@ -1,12 +1,20 @@
+from abc import ABC
+from abc import abstractmethod
+from typing import List
+from typing import Optional
 from uuid import UUID
-from abc import ABC, abstractmethod
-from typing import Optional, List
 
-from sqlalchemy import RowMapping, delete, func, insert, select, update
+from sqlalchemy import delete
+from sqlalchemy import func
+from sqlalchemy import insert
+from sqlalchemy import RowMapping
+from sqlalchemy import select
+from sqlalchemy import update
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from src.core.exceptions import AddRecordError
+from src.core.exceptions import NotFound
 from src.core.messages import Messages
-from src.core.exceptions import AddRecordError, NotFound
 
 
 class AbstractRepository(ABC):

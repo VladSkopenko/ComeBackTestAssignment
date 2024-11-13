@@ -1,29 +1,28 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI
+from fastapi import Request
 from fastapi import status
+from fastapi.responses import JSONResponse
 
-from src.core.exceptions import (
-    AddRecordError,
-    BadRequest,
-    PermissionsError,
-    AlreadyExists,
-    InvalidCredentials,
-    PermissionDenied,
-    NotFound,
-    InvalidToken,
-    InvalidEmail,
-    UserNotActive,
-    EmailNotConfirmed,
-    InvalidPassword,
-    VerificationError,
-    InvalidRefreshToken,
-    InvalidResetToken,
-    ErrorConnectingDb,
-    AlreadyActivated,
-    AlreadyDeactivated,
-    InvalidLogin,
-    CredentialsLicenseError,
-)
+from src.core.exceptions import AddRecordError
+from src.core.exceptions import AlreadyActivated
+from src.core.exceptions import AlreadyDeactivated
+from src.core.exceptions import AlreadyExists
+from src.core.exceptions import BadRequest
+from src.core.exceptions import CredentialsLicenseError
+from src.core.exceptions import EmailNotConfirmed
+from src.core.exceptions import ErrorConnectingDb
+from src.core.exceptions import InvalidCredentials
+from src.core.exceptions import InvalidEmail
+from src.core.exceptions import InvalidLogin
+from src.core.exceptions import InvalidPassword
+from src.core.exceptions import InvalidRefreshToken
+from src.core.exceptions import InvalidResetToken
+from src.core.exceptions import InvalidToken
+from src.core.exceptions import NotFound
+from src.core.exceptions import PermissionDenied
+from src.core.exceptions import PermissionsError
+from src.core.exceptions import UserNotActive
+from src.core.exceptions import VerificationError
 
 
 def register_exception_handlers(app: FastAPI):
