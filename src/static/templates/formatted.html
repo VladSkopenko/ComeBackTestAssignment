@@ -9,7 +9,7 @@
             rel="stylesheet"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/styles/style.css"/>
+    <link rel="stylesheet" href="/static/styles/index.css"/>
 </head>
 
 <body class="bg-dark text-white">
@@ -53,34 +53,5 @@
 </div>
 
 </body>
-<script>
-  async function formatDocument(documentId) {
-    // URL роутера для отправки PATCH-запроса
-    const url = `/document_word/format/${documentId}`;
-
-    try {
-      // Отправка PATCH-запроса
-      const response = await fetch(url, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        // Здесь можно добавить уведомление об успешном завершении
-        alert("Документ успешно отформатирован!");
-        // Можно обновить страницу или произвести другие действия, например:
-        window.location.reload();  // Перезагрузка страницы для обновления данных
-      } else {
-        // Обработка ошибки, если запрос не успешен
-        alert("Произошла ошибка при форматировании документа.");
-      }
-    } catch (error) {
-      console.error('Ошибка при запросе:', error);
-      alert("Произошла ошибка при отправке запроса.");
-    }
-  }
-</script>
-
+    <script src="/static/js/formatted.js"></script>
 </html>
