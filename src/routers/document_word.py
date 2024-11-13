@@ -74,7 +74,7 @@ async def format_document(
     docx_stream.seek(0)
     new_dropbox_path = f"/formatted_apa_{file_name}"
     document_updated = await document_service.update_document_word_by_id(uow, document_id, new_dropbox_path)
-    dropbox_service.upload_file2(docx_stream, dropbox_path=new_dropbox_path)
+    dropbox_service.upload_with_overwrite(docx_stream, dropbox_path=new_dropbox_path)
     return document_updated
 
 

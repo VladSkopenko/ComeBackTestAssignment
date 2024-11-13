@@ -1,4 +1,3 @@
-import os
 from io import BytesIO
 
 import dropbox
@@ -17,7 +16,7 @@ class DropboxService:
         file_content = await file.read()
         self.dbx.files_upload(file_content, dropbox_path)
 
-    def upload_file2(self, file: BytesIO, dropbox_path: str):
+    def upload_with_overwrite(self, file: BytesIO, dropbox_path: str):
         file_content = file.read()
         self.dbx.files_upload(file_content, dropbox_path, mode=WriteMode('overwrite'))
 
@@ -26,11 +25,5 @@ class DropboxService:
         return metadata.name, response.content
 
     def open_file_from_dropbox(self, dropbox_path: str):
-        """
-        Открывает файл из Dropbox и возвращает его содержимое в памяти.
-
-        :param dropbox_path: Путь к файлу на Dropbox.
-        :return: Имя файла и его содержимое в байтах.
-        """
         metadata, response = self.dbx.files_download(dropbox_path)
         return metadata.name, response.content
