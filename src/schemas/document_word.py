@@ -18,3 +18,9 @@ class DocumentWordSchema(BaseModel):
     updated_at: datetime
     created_at: datetime
     model_config = ConfigDict(from_attributes=True)
+
+
+class Suggestion(BaseModel):
+    id: int
+    text: str
+    accepted: bool = False

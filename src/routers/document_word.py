@@ -6,6 +6,7 @@ from fastapi.params import File
 from fastapi.responses import StreamingResponse
 from fastapi import status
 
+from src.core.decorators import validate_extension
 from src.core.logging_config import get_logger
 from src.routers.dependencies import DocumentWordServiceDep
 from src.routers.dependencies import UOWDep
@@ -24,6 +25,7 @@ router = APIRouter(
 
 
 @router.post("/upload", response_model=DocumentWordSchema, status_code=status.HTTP_201_CREATED)
+@validate_extension(".docx")
 async def upload_to_dropbox(
         document_service: DocumentWordServiceDep,
         uow: UOWDep,

@@ -41,8 +41,9 @@
             <li class="list-group-item bg-dark text-white d-flex align-items-center">
                 <span>{{ document.id }} — {{ document.original_document }}</span>
                 <div class="document-actions">
-                    <!-- Добавляем атрибут data-id с ID документа для отправки запроса -->
                     <button class="btn btn-primary btn-sm" data-id="{{ document.id }}" onclick="formatDocument({{ document.id }})">Форматувати</button>
+                    <button class="btn btn-success btn-sm ms-2" data-id="{{ document.id }}"
+                            onclick="downloadDocument('{{ document.formatted_apa }}')">Завантажити</button>
                 </div>
             </li>
             {% else %}
@@ -51,7 +52,7 @@
         </ul>
     </div>
 </div>
-
+<script src="/static/js/formatted.js"></script>
+<script src="/static/js/download.js"></script>
 </body>
-    <script src="/static/js/formatted.js"></script>
 </html>
