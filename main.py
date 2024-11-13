@@ -23,9 +23,9 @@ templates = Jinja2Templates(directory="src/static/templates")
 
 app.add_middleware(
     CORSMiddleware,  # Cross-Origin Resource Sharing !!!!!!!!!!!!!
-    allow_origins=["*"],
+    allow_origins=["localhost", "127.0.0.1"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["Get", "Post", "Patch"],
     allow_headers=["*"],
 )
 
